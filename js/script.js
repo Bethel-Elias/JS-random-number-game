@@ -69,7 +69,7 @@ function getInstructionsMessage() {
     "Scoring:\n" +
     "- Fewer attempts give a higher score.\n" +
     "- Try to guess the number as quickly as possible! \n\n" +
-    "- How to see results:\n" +
+    "How to see results:\n" +
     "- Open the browser console.\n" +
     "- Windows/Linux: F12 or Ctrl+Shift+I\n" +
     "- Mac: Cmd+Option+I\n" 
