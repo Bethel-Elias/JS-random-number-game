@@ -16,18 +16,34 @@ function getPlayerGuess() {
 
     const trimmedInput = input.trim();
 
+    if (trimmedInput === "") {
+      console.log("You did not enter anything. Please type a whole number from 1 to 100.");
+      continue;
+    }
+
+    if (!Number.isNaN(Number(trimmedInput)) && !Number.isInteger(Number(trimmedInput))) {
+      console.log(`"${input}" is not a whole number. Please enter a number like 7, 42, or 100.`);
+      continue;
+    }
+
     if (!/^\d+$/.test(trimmedInput)) {
-      console.log("Invalid input. Please enter a whole number between 1 and 100.");
+      console.log(`"${input}" is not valid input. Please enter digits only, with no letters or symbols.`);
       continue;
     }
 
     const guess = Number(trimmedInput);
 
-    if (guess >= 1 && guess <= 100) {
-      return guess;
+    if (guess < 1) {
+      console.log(`"${input}" is too low. Please enter a number from 1 to 100.`);
+      continue;
     }
 
-    console.log("Invalid input. Please enter a whole number between 1 and 100.");
+    if (guess > 100) {
+      console.log(`"${input}" is too high. Please enter a number from 1 to 100.`);
+      continue;
+    }
+
+    return guess;
   }
 }
 
@@ -63,8 +79,8 @@ function game() {
 
     // Check if number was already guessed
     if (previousGuesses.includes(playerGuess)) {
-      alert(`Hey....You already guessed ${playerGuess}! Try a different number.`);
-      console.log(`You already guessed ${playerGuess}!`);
+      alert(`You already guessed ${playerGuess}. That guess will not count, so please try a different number.`);
+      console.log(`You already guessed ${playerGuess}. Pick a new number so you do not waste time repeating guesses.`);
       continue;
     }
 
