@@ -1,1 +1,0 @@
-# JS-random-number-game

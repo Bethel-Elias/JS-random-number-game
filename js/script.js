@@ -1,3 +1,5 @@
+
+
 // Generate Random Number
 function generateRandomNumber() {
   return Math.floor(Math.random() * 100) + 1;
@@ -5,7 +7,7 @@ function generateRandomNumber() {
 
 // Get Player Guess
 function getPlayerGuess() {
-  while (true) {
+  for (;;) {
     const input = prompt("Enter a number between 1 and 100:");
 
     if (input === null) {
@@ -38,14 +40,13 @@ function game() {
   const correctNumber = generateRandomNumber();
   const maxAttempts = 10;
 
-  let attempts = 0;
   let guessedCorrectly = false;
   let playerGuess;
   let previousGuesses = [];
 
   console.log("Welcome to the Number Guessing Game");
 
-  while (attempts < maxAttempts && !guessedCorrectly) {
+  for (let attempts = 0; attempts < maxAttempts && !guessedCorrectly;) {
     playerGuess = getPlayerGuess();
 
     if (playerGuess === null) {
@@ -56,7 +57,7 @@ function game() {
     // Check if number was already guessed
     if (previousGuesses.includes(playerGuess)) {
       alert(`Hey....You already guessed ${playerGuess}! Try a different number.`);
-       console.log(`You already guessed ${playerGuess}!`);
+      console.log(`You already guessed ${playerGuess}!`);
       continue;
     }
 
@@ -76,12 +77,12 @@ function game() {
   }
 
   if (guessedCorrectly) {
-    const score = (maxAttempts - attempts + 1) * 10;
+    const score = (maxAttempts - previousGuesses.length + 1) * 10;
 
     console.log("Congratulations! You guessed the number!");
     console.log(`Correct Number: ${correctNumber}`);
     console.log(`Your Guess: ${playerGuess}`);
-    console.log(`Attempts used: ${attempts}`);
+    console.log(`Attempts used: ${previousGuesses.length}`);
     console.log(`Score: ${score}`);
   } else {
     console.log("Opps....Game Over!");
