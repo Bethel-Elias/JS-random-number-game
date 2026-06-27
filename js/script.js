@@ -14,13 +14,20 @@ function getPlayerGuess() {
       return null;
     }
 
-    const guess = parseInt(input);
+    const trimmedInput = input.trim();
 
-    if (!isNaN(guess) && guess >= 1 && guess <= 100) {
+    if (!/^\d+$/.test(trimmedInput)) {
+      console.log("Invalid input. Please enter a whole number between 1 and 100.");
+      continue;
+    }
+
+    const guess = Number(trimmedInput);
+
+    if (guess >= 1 && guess <= 100) {
       return guess;
     }
 
-    console.log("Invalid input. Please enter a number between 1 and 100.");
+    console.log("Invalid input. Please enter a whole number between 1 and 100.");
   }
 }
 
