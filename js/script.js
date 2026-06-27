@@ -1,11 +1,8 @@
 
-
-// Generate Random Number
 function generateRandomNumber() {
   return Math.floor(Math.random() * 100) + 1;
 }
 
-// Get Player Guess
 function getPlayerGuess() {
   for (;;) {
     const input = prompt("Enter a number between 1 and 100:");
@@ -31,7 +28,6 @@ function getPlayerGuess() {
   }
 }
 
-// Check Guess
 function checkGuess(playerGuess, correctNumber) {
   if (playerGuess < correctNumber) {
     return "Too low!";
@@ -42,7 +38,6 @@ function checkGuess(playerGuess, correctNumber) {
   }
 }
 
-// Main Game
 function game() {
   const correctNumber = generateRandomNumber();
   const maxAttempts = 10;
@@ -61,14 +56,12 @@ function game() {
       return;
     }
 
-    // Check if number was already guessed
     if (previousGuesses.includes(playerGuess)) {
       alert(`Hey....You already guessed ${playerGuess}! Try a different number.`);
       console.log(`You already guessed ${playerGuess}!`);
       continue;
     }
 
-    // Save the guess
     previousGuesses.push(playerGuess);
 
     attempts++;
@@ -97,5 +90,4 @@ function game() {
   }
 }
 
-// Start Game
 game();
