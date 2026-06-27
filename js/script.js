@@ -54,6 +54,32 @@ function checkGuess(playerGuess, correctNumber) {
   }
 }
 
+function getInstructionsMessage() {
+  return (
+    "Number Guessing Game\n\n" +
+    "How to play:\n" +
+    "- Guess a number between 1 and 100.\n" +
+    "- You have 10 attempts to find the correct number.\n" +
+    "- Repeated guesses do not count.\n" +
+    "- Enter only whole numbers.\n" +
+    "- Click Cancel to quit the game.\n\n" +
+    "Game feedback:\n" +
+    "- You will see 'Too high' or 'Too low' after each guess.\n" +
+    "- The game ends when you guess correctly or run out of attempts.\n\n" +
+    "Scoring:\n" +
+    "- Fewer attempts give a higher score.\n" +
+    "- Try to guess the number as quickly as possible! \n\n" +
+    "- How to see results:\n" +
+    "- Open the browser console.\n" +
+    "- Windows/Linux: F12 or Ctrl+Shift+I\n" +
+    "- Mac: Cmd+Option+I\n" 
+  );
+}
+
+function showInstructions() {
+  alert(getInstructionsMessage());
+}
+
 function game() {
   const correctNumber = generateRandomNumber();
   const maxAttempts = 10;
@@ -105,5 +131,5 @@ function game() {
     console.log(`The correct number was ${correctNumber}`);
   }
 }
-
+showInstructions();
 game();
